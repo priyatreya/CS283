@@ -15,7 +15,7 @@ public class WorkerThread2 extends Thread{
 	 */
 	public  void run() {
 		
-		int port = 4444;
+		int port = 4443;
 		long start = System.currentTimeMillis();
 		long end = start + 1000;
 		PrintStream ps = null;
@@ -32,11 +32,15 @@ public class WorkerThread2 extends Thread{
 				ps.println("Hello world!!");
 				line = r.readLine();
 	//			System.out.println(line);
-				System.out.print("1 ");
+				Thread.sleep(10);
+				System.out.println("1 ");
 			
 			} catch (UnknownHostException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			ps.close();

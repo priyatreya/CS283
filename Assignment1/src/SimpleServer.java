@@ -14,7 +14,7 @@ public class SimpleServer {
 	 */
 	public static void main(String[] args) throws IOException {
 		
-		ServerSocket ss = new ServerSocket(3333);
+		ServerSocket ss = new ServerSocket(3334);
 		while(true) {
 			Socket cs = ss.accept();
 			BufferedReader r = new BufferedReader(new InputStreamReader(cs.getInputStream()));
@@ -24,9 +24,9 @@ public class SimpleServer {
 				ps.println(line.toUpperCase());
 			}
 			
-			r.close();
+			
 			ps.close();
-			ss.close();
+			
 		}
 		
 		

@@ -12,7 +12,7 @@ public class MTServer {
 
 	public static void main(String[] args) throws IOException {
 		
-		ServerSocket ss = new ServerSocket(4444);
+		ServerSocket ss = new ServerSocket(4443);
 		
 		for(;;) {
 			Socket cs = ss.accept();

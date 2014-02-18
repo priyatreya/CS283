@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.net.Socket;
 
 
@@ -16,11 +17,12 @@ public class WorkerThread extends Thread {
 		try {
 			BufferedReader r = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 			String line;
+			PrintStream ps = new PrintStream(clientSocket.getOutputStream());
 			while((line = r.readLine()) != null) {
-				System.out.println(line.toUpperCase());
+				ps.println(line.toUpperCase());
 			}
 			
-			r.close();
+			ps.close();
 		}
 		catch(IOException e) {
 			e.printStackTrace();
