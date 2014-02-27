@@ -21,7 +21,6 @@ public class MTServer {
 		BananaBank bank = new BananaBank("accounts.txt");
 		ServerSocket ss = new ServerSocket(5554);
 		ArrayList<WorkerThread> threads = new ArrayList<WorkerThread>();
-		int sum = 1;
 		
 		try {
 			for(;;) {
@@ -29,7 +28,6 @@ public class MTServer {
 				WorkerThread t = new WorkerThread(cs, ss, bank, threads);
 				t.start();
 				threads.add(t);
-				sum++;
 			}
 		} catch(SocketException e) {
 			System.out.println("Server: serverSocket closed");
